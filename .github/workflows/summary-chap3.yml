@@ -1,0 +1,15 @@
+name: Summary Chapter3
+run-name: Run by @${{ github.actor }}
+on: push
+jobs:
+  print:
+    name: Summary Chapter3 # ジョブ名の指定
+    runs-on: ubuntu-latest
+    steps:
+      - name: Summary Chapter3 # step名の指定
+        run: echo "chap3"
+      - id: source
+        run: echo "result=Hello" > ${GUTHUB_OUTPUT}
+      - env:
+          RESULT: ${{ steps.source.outputs.result }}
+        run: echo "${RESULT}"
